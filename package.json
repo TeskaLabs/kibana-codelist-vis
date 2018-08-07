@@ -4,7 +4,7 @@
 	"description": "Translate field values into more human-friendly text",
 	"main": "index.js",
 	"kibana": {
-		"version": "6.2.2"
+		"version": "6.3.3"
 	},
 	"scripts": {
 		"lint": "eslint",

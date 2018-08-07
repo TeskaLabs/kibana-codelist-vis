@@ -1,4 +1,4 @@
-import { RegistryFieldFormatsProvider } from 'ui/registry/field_formats';
+import { fieldFormats } from 'ui/registry/field_formats';
 import getLookupFieldFormatClass from '../getLookupFieldFormatClass';
 
 function createFieldFormat(fformat, FieldFormat) {
@@ -18,7 +18,7 @@ function createFieldFormat(fformat, FieldFormat) {
 
 function registerFormatters(fformats) {
 	for (var i=0; i < fformats.length; i++) {
-		RegistryFieldFormatsProvider.register(function(FieldFormat) {
+		fieldFormats.register(function(FieldFormat) {
 			var fformat = this;
 			return createFieldFormat(fformat, FieldFormat);
 		}.bind(fformats[i])); // Hack: bind fformats[i] as 'this' to the function's scope to cope with asynchronous behaviour.
@@ -29,7 +29,7 @@ function registerFormatters(fformats) {
 $.ajax({
 	type: "GET",
 	url: '../api/kibana_codelist_vis/lookup',
-	// RegistryFieldFormatsProvider does not work with async
+	// Data must be loaded synchronously during the Kibana web app init time.
 	async: false,
 	success: function(data) {
 		var fformats = data["hits"]["hits"];

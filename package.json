@@ -1,6 +1,6 @@
 {
 	"name": "kibana_codelist_vis",
-	"version": "18.03.01",
+	"version": "18.03.02",
 	"description": "Translate field values into more human-friendly text",
 	"main": "index.js",
 	"kibana": {

@@ -42,6 +42,8 @@ export default function (kibana) {
 							}
 						}).then(function (response) {
 							reply(response);
+						}, function (response) {
+							reply(response);
 						});
 					}
 			});

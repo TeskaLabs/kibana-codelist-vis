@@ -40,7 +40,10 @@ export default function (kibana) {
 								data.callWithRequest(
 									req, 
 									'search', 
-									{index: '.x-lff-lookup', size: response.count}
+									{
+										index: '.x-lff-lookup', 
+										size: response.count
+									}
 								).then(function (response) {
 									reply(response);
 								}, function (response) {
